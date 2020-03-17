@@ -101,9 +101,11 @@ export class NoticiasComponent implements OnInit {
 
   onSelectOrderDropdownMenu(item: any) {
     this.order = true
+    console.log(item['param'])
     this.noticias = null
     this.dropdownOrderSelectedItem = item
-    this._service.params = this._service.params.set('order', item['param'])
+    this._service.params = this._service.params.set('valueSort', item['param'])
+    this._service.params = this._service.params.set('columnSort','date')
     this.getNoticiasWithParams()
   }
 
